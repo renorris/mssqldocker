@@ -1,6 +1,6 @@
 # Overview
 
-* Build a docker image based on microsoft/mssql-server-linux
+* Build a docker image based on mcr.microsoft.com/mssql/server
 * Configure the database with a database and user
 
 # How to Run
@@ -71,13 +71,13 @@ You can then simple call `docker-compose up` instead of the long `docker run...`
 ## Dockerfile
 The Dockerfile defines how the image will be built.  Each of the commands in the Dockerfile is described below.
 
-The Dockerfile defines the base image (the first layer) using the official Microsoft SQL Server Linux image that can be found on [Docker Hub](http://hub.docker.com/r/microsoft/mssql-server-linux). The Dockerfile will pull the image with the '2017-CU12' tag. This image requires two environment variables to be passed to it at run time - `ACCEPT_EULA` and `SA_PASSWORD`. The Microsoft SQL Server Linux image is in turn based on the official Ubuntu Linux image `Ubuntu:16.04`.
+The Dockerfile defines the base image (the first layer) using the official Microsoft SQL Server Linux image that can be found on [Docker Hub](http://hub.docker.com/r/microsoft/mssql-server). The Dockerfile will pull the image with the '2017-CU12-ubuntu' tag. This image requires two environment variables to be passed to it at run time - `ACCEPT_EULA` and `SA_PASSWORD`. The Microsoft SQL Server Linux image is in turn based on the official Ubuntu Linux image `Ubuntu:16.04`.
 
 In addition, we will need to pass the following env variables `$MSSQL_DB` `$MSSQL_USER` `$MSSQL_PASSWORD`.
 They will be used to configure the server with a new database and a user with admin permissions.
 
 ```
-FROM microsoft/mssql-server-linux:latest
+FROM mcr.microsoft.com/mssql/server:2017-CU12-ubuntu
 ```
 
 This RUN command creates a new directory _inside_ the container at /usr/config and then sets the working directory to that directory.

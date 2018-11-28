@@ -1,4 +1,4 @@
-FROM microsoft/mssql-server-linux:2017-CU10
+FROM microsoft/mssql-server-linux:2017-CU12
 
 # Create a config directory
 RUN mkdir -p /usr/config

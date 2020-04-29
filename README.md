@@ -19,8 +19,10 @@ If you just want to use the image, you only need the `docker-compose.yml`.
 
 Pulling the image
 ```
-docker-compose pull
+docker-compose pull mcmoe/mssqldocker
 ```
+
+/!\ Look at the available tags on DockerHub if you would like to use a specific version
 
 ## Building the image for the first time
 If you want to modify the files in the image, then you'll have to build locally.
@@ -71,13 +73,13 @@ You can then simple call `docker-compose up` instead of the long `docker run...`
 ## Dockerfile
 The Dockerfile defines how the image will be built.  Each of the commands in the Dockerfile is described below.
 
-The Dockerfile defines the base image (the first layer) using the official Microsoft SQL Server Linux image that can be found on [Docker Hub](http://hub.docker.com/r/microsoft/mssql-server). The Dockerfile will pull the image with the '2017-CU12-ubuntu' tag. This image requires two environment variables to be passed to it at run time - `ACCEPT_EULA` and `SA_PASSWORD`. The Microsoft SQL Server Linux image is in turn based on the official Ubuntu Linux image `Ubuntu:16.04`.
+The Dockerfile defines the base image (the first layer) using the official Microsoft SQL Server Linux image that can be found on [Docker Hub](http://hub.docker.com/r/microsoft/mssql-server). The Dockerfile will pull the image with the '2017-CU20-ubuntu-16.04' tag. This image requires two environment variables to be passed to it at run time - `ACCEPT_EULA` and `SA_PASSWORD`. The Microsoft SQL Server Linux image is in turn based on the official Ubuntu Linux image `Ubuntu:16.04`.
 
 In addition, we will need to pass the following env variables `$MSSQL_DB` `$MSSQL_USER` `$MSSQL_PASSWORD`.
 They will be used to configure the server with a new database and a user with admin permissions.
 
 ```
-FROM mcr.microsoft.com/mssql/server:2017-CU12-ubuntu
+FROM mcr.microsoft.com/mssql/server:2017-CU20-ubuntu-16.04
 ```
 
 This RUN command creates a new directory _inside_ the container at /usr/config and then sets the working directory to that directory.

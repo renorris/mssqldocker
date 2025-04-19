@@ -1,10 +1,23 @@
 #!/bin/bash
 
-# Start SQL Server
-/opt/mssql/bin/sqlservr &
+# Check required environment variables
+required_vars=("ACCEPT_EULA" "SA_PASSWORD" "MSSQL_DB" "MSSQL_USER" "MSSQL_PASSWORD")
+missing=()
+for var in "${required_vars[@]}"; do
+    if ! declare -p "$var" &> /dev/null; then
+        missing+=("$var")
+    fi
+done
+if [ ${#missing[@]} -gt 0 ]; then
+    echo "Error: The following required environment variables are not set:"
+    for m in "${missing[@]}"; do
+        echo "  $m"
+    done
+    exit 1
+fi
 
-# Start the script to create the DB and user
-/usr/config/configure-db.sh
+# Run configuration in background
+/usr/config/configure-db.sh &
 
-# Call extra command
-eval $1
+# Start SQL Server as main process
+exec /opt/mssql/bin/sqlservr

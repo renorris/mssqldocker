@@ -42,9 +42,6 @@ The following environment variables are required:
 
 **Note:** Passwords must be at least 8 characters long and include uppercase, lowercase, digits, and symbols, as per SQL Server requirements.
 
-## Contributing
-Contributions are welcome! Please submit issues or pull requests to the [GitHub repository](https://github.com/mcmoe/mssqldocker).
-
 ## Acknowledgments
 - Original work by Travis Wright, extensively modified by Morgan Kobeissi.
 - Built upon the official Microsoft SQL Server Docker image.

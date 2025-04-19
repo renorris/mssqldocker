@@ -35,7 +35,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=raw,value=latest
+            type=raw,value=2022-CU18-ubuntu-22.04
 
       - name: Build and push Docker image
         id: build-and-push

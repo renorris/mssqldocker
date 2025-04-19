@@ -1,6 +1,6 @@
 # mssqldocker
 
-This project builds a Docker image based on the official Microsoft SQL Server 2022 image (`mcr.microsoft.com/mssql/server:2022-latest`) and configures it with a specified database and user. It simplifies setting up a SQL Server instance for development and testing environments using Docker.
+This project builds a Docker image based on the official Microsoft SQL Server (2022-CU18) image (`mcr.microsoft.com/mssql/server:2022-CU18-ubuntu-22.04`) and configures it with a specified database and user. It simplifies setting up a SQL Server instance for development and testing environments using Docker.
 
 ## Features
 - Automated setup of a SQL Server 2022 instance with a custom database and admin user.
@@ -21,7 +21,7 @@ docker run \
 -p 1433:1433 \
 ghcr.io/rnorris/mssqldocker:latest
 ```
-- Ensure the `SA_PASSWORD` and `MSSQL_PASSWORD` are at least 8 characters long, containing uppercase, lowercase, digits, and symbols.
+- Ensure the `SA_PASSWORD` and `MSSQL_PASSWORD` are at least 8 characters long, containing uppercase, lowercase, digits, and symbols. This requirement is enforced by MSSQL.
 
 ### Connecting to the Database
 To connect to the SQL Server instance running in the container:

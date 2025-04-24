@@ -19,7 +19,7 @@ docker run \
 -e MSSQL_USER=myUser \
 -e MSSQL_PASSWORD=Another@Passw0rd \
 -p 1433:1433 \
-ghcr.io/rnorris/mssqldocker:2022-CU18-ubuntu-22.04
+ghcr.io/renorris/mssqldocker:2022-CU18-ubuntu-22.04
 ```
 - Ensure the `SA_PASSWORD` and `MSSQL_PASSWORD` are at least 8 characters long, containing uppercase, lowercase, digits, and symbols. This requirement is enforced by MSSQL.
 
